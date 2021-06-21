@@ -8,11 +8,13 @@ import messages_reducer from './reducers/messages_reducer';
 // internal modules
 import App from './components/app';
 import '../assets/stylesheets/application.scss';
-
+import { logger } from 'redux-logger'; 
 import promise from 'redux-promise-middleware'
 
+
+
 const composeStoreWithMiddleware = applyMiddleware(
-  promise,
+  promise, logger
 )(createStore)
 
 
