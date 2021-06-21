@@ -17,10 +17,13 @@ const composeStoreWithMiddleware = applyMiddleware(
   promise, logger
 )(createStore)
 
+const initialState = {
+  channels: ['general', 'react', 'paris'],
+};
 
 // State and reducers
 const reducers = combineReducers({
-  messages: messages_reducer
+  messages: messages_reducer,
 });
 
 // render an instance of the component in the DOM

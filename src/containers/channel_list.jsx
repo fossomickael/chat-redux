@@ -16,3 +16,5 @@ class ChannelList extends Component {
       }
 }
 
+export default ChannelList;
+
