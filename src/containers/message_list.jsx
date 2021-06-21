@@ -10,12 +10,12 @@ class MessageList extends Component {
 
     componentDidMount() { 
         this.props.setMessages();
-        console.log(this.props.messages);
+    
     }
 
     render() {
       return <div> {this.props.messages.map((message) => {
-        return <Message key={message.content} message={message}  />;
+        return <Message key={message.created_at} message={message}  />;
       })} 
         <div><MessageForm /> </div>
       </div> 

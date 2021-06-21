@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { createMessage } from '../actions/index';
-
+import { setMessages } from "../actions/index.js"
 
 class MessageForm extends Component {
     constructor(props) {
@@ -12,11 +12,16 @@ class MessageForm extends Component {
     handleSubmit = (event) => {
         event.preventDefault();
         this.props.createMessage("586", "Mickael FOSSO", this.state.value);
+        this.props.setMessages();
+    }
+
+      handleChange = (event) => {
+        this.setState({ value: event.target.value });
       }
     render() {
       return (
         <form onSubmit={this.handleSubmit} className="channel-editor">
-        <   input
+        < input
             value={this.state.value}
             onChange={this.handleChange}
             />
@@ -34,7 +39,7 @@ const mapStateToProps = (state) => {
 
 
 const mapDispatchToProps = (dispatch) => {
-    return bindActionCreators({ createMessage }, dispatch);
+    return bindActionCreators({ createMessage, setMessages }, dispatch);
   }
 
 

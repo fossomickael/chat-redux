@@ -26,7 +26,6 @@ export const createMessage =  (channel, author, content) => {
 
 async function postMessage(channel, author, content) {
     const url = "https://wagon-chat.herokuapp.com/586/messages"
-    content = "hello";
     const body = { author, content };
     const settings = {
         method: 'POST',
