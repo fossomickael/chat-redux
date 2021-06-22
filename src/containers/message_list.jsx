@@ -9,22 +9,21 @@ import { setMessages } from "../actions/index.js"
 class MessageList extends Component {
 
     componentDidMount() { 
-        this.props.setMessages(this.props.selectedChannel);
+        this.props.setMessages(this.props.channelFromParams);
     }
 
     render() {
       return <div> {this.props.messages.map((message) => {
         return <Message key={message.created_at} message={message}  />;
       })} 
-        <div><MessageForm /> </div>
+        <div><MessageForm channelFromParams={this.props.channelFromParams} /> </div>
       </div> 
         }
     }
 
 const mapStateToProps = (state) => {
     return {
-      messages: state.messages,
-      selectedChannel: state.selectedChannel
+      messages: state.messages
     };
   }
 

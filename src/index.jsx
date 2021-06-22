@@ -12,6 +12,11 @@ import '../assets/stylesheets/application.scss';
 import { logger } from 'redux-logger'; 
 import promise from 'redux-promise-middleware'
 
+import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
+ 
+
+
+
 const identityReducer = (state = null) => state;
 
 const composeStoreWithMiddleware = applyMiddleware(
@@ -20,7 +25,6 @@ const composeStoreWithMiddleware = applyMiddleware(
 
 const initialState = {
   channels: ['586', 'react', 'paris'],
-  selectedChannel: '586',
   currentUser: 'Mickael FOSSO'
 };
 
@@ -28,14 +32,18 @@ const initialState = {
 const reducers = combineReducers({
   messages: messages_reducer,
   channels: channels_reducer,
-  selectedChannel: selectedChannelReducer,
   currentUser: identityReducer
 });
 
 // render an instance of the component in the DOM
 ReactDOM.render(
   <Provider store={composeStoreWithMiddleware(reducers, initialState)}>
-    <App />
+    <Router history={history}>
+      <Switch>
+          <Route path="/:channel" component={App} />
+          <Redirect from="/" to="/586" />    
+      </Switch>
+    </Router>
   </Provider>,
   document.getElementById('root')
 );
