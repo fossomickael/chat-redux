@@ -2,7 +2,6 @@
 
 
 export const setMessages = (channel) => {
-    console.log(channel);
     return {
       type: "SET_MESSAGES",
       async payload () {

@@ -28,7 +28,7 @@ class MessageForm extends Component {
             value={this.state.value}
             onChange={this.handleChange}
             />
-            <button type="submit" className="btn btn-flat"><i class="fas fa-search"></i>Send</button>
+            <button type="submit" className="btn btn-flat"><i className="fas fa-search"></i>Send</button>
         </div>
         </form>
       );
