@@ -20,12 +20,16 @@ class MessageForm extends Component {
       }
     render() {
       return (
-        <form onSubmit={this.handleSubmit} className="channel-editor">
-        < input
+        <form onSubmit={this.handleSubmit} className="simple_form search">
+       
+       <div className="search-form-control form-group">
+        < input className="form-control string required"  
+            id="search_query"
             value={this.state.value}
             onChange={this.handleChange}
             />
-            <button type="submit">Send</button>
+            <button type="submit" className="btn btn-flat"><i class="fas fa-search"></i>Send</button>
+        </div>
         </form>
       );
     }
