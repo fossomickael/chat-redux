@@ -1,11 +1,13 @@
 // TODO: add and export your own actions
 
 
-export const setMessages = () => {
+export const setMessages = (channel) => {
+    console.log(channel);
     return {
       type: "SET_MESSAGES",
       async payload () {
-        const url = "https://wagon-chat.herokuapp.com/586/messages"
+        console.log(channel);
+        const url = `https://wagon-chat.herokuapp.com/${channel}/messages`
         const response = await fetch(url);
         const messages = await response.json();
         return  messages["messages"];

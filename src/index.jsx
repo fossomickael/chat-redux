@@ -4,7 +4,8 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore, combineReducers, applyMiddleware} from 'redux';
 import messages_reducer from './reducers/messages_reducer';
-
+import channels_reducer from './reducers/channels_reducer';
+import selectedChannelReducer from './reducers/selected_channel_reducer';
 // internal modules
 import App from './components/app';
 import '../assets/stylesheets/application.scss';
@@ -18,17 +19,20 @@ const composeStoreWithMiddleware = applyMiddleware(
 )(createStore)
 
 const initialState = {
-  channels: ['general', 'react', 'paris'],
+  channels: ['586', 'react', 'paris'],
+  selectedChannel: '586'
 };
 
 // State and reducers
 const reducers = combineReducers({
   messages: messages_reducer,
+  channels: channels_reducer,
+  selectedChannel: selectedChannelReducer
 });
 
 // render an instance of the component in the DOM
 ReactDOM.render(
-  <Provider store={composeStoreWithMiddleware(reducers)}>
+  <Provider store={composeStoreWithMiddleware(reducers, initialState)}>
     <App />
   </Provider>,
   document.getElementById('root')

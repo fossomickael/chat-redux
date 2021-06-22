@@ -9,8 +9,7 @@ import { setMessages } from "../actions/index.js"
 class MessageList extends Component {
 
     componentDidMount() { 
-        this.props.setMessages();
-    
+        this.props.setMessages(this.props.selectedChannel);
     }
 
     render() {
@@ -24,7 +23,8 @@ class MessageList extends Component {
 
 const mapStateToProps = (state) => {
     return {
-      messages: state.messages
+      messages: state.messages,
+      selectedChannel: state.selectedChannel
     };
   }
 

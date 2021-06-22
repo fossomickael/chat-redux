@@ -1,4 +1,4 @@
-export default function(state, action) {
+const messages_reducer = (state, action) => {
     if (state === undefined) {
       return [];
     }
@@ -11,3 +11,5 @@ export default function(state, action) {
         return state;
     }
   }
+
+export default messages_reducer;
