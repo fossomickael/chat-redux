@@ -6,7 +6,7 @@ export const setMessages = (channel) => {
     return {
       type: "SET_MESSAGES",
       async payload () {
-        console.log(channel);
+       
         const url = `https://wagon-chat.herokuapp.com/${channel}/messages`
         const response = await fetch(url);
         const messages = await response.json();
@@ -27,7 +27,7 @@ export const createMessage =  (channel, author, content) => {
 }
 
 async function postMessage(channel, author, content) {
-    const url = "https://wagon-chat.herokuapp.com/586/messages"
+    const url = `https://wagon-chat.herokuapp.com/${channel}/messages`
     const body = { author, content };
     const settings = {
         method: 'POST',
