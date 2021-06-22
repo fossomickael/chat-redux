@@ -12,7 +12,7 @@ import '../assets/stylesheets/application.scss';
 import { logger } from 'redux-logger'; 
 import promise from 'redux-promise-middleware'
 
-
+const identityReducer = (state = null) => state;
 
 const composeStoreWithMiddleware = applyMiddleware(
   promise, logger
@@ -20,14 +20,16 @@ const composeStoreWithMiddleware = applyMiddleware(
 
 const initialState = {
   channels: ['586', 'react', 'paris'],
-  selectedChannel: '586'
+  selectedChannel: '586',
+  currentUser: 'Mickael FOSSO'
 };
 
 // State and reducers
 const reducers = combineReducers({
   messages: messages_reducer,
   channels: channels_reducer,
-  selectedChannel: selectedChannelReducer
+  selectedChannel: selectedChannelReducer,
+  currentUser: identityReducer
 });
 
 // render an instance of the component in the DOM
